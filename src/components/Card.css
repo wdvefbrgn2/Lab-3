@@ -1,0 +1,44 @@
+.container{
+    width: 500px;
+    height: 350px;
+  }
+  
+.card{
+    height: 100%;
+    width: 100%;
+    transition: 1000ms;
+    position: relative;
+}
+  
+.container:hover > .card{
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: 1000ms;
+    transform-style: preserve-3d;
+  }
+
+.front,
+.back{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 2em;
+}
+  
+.front{
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.back{
+    background-color: gray;
+    color: black;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
