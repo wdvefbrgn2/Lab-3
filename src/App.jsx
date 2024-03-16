@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Card from "./components/Card";
 import CardChange from "./components/CardChange";
@@ -6,7 +6,7 @@ import cardData from "./components/Q&A";
 
 function App() {
   const [currentCard, setCurrentCard] = useState(0);
-
+  const [isCorrect, setIsCorrect] = useState('');
   const ChangeCard = (newcardnum) => {
     setCurrentCard(newcardnum);
   };
@@ -18,8 +18,11 @@ function App() {
         <p> Test out your knowledge of random history using the following cards!</p>
       </div>
       <div className = "card">
-        <Card question = {cardData[currentCard].question} answer = {cardData[currentCard].answer}/>
-        <CardChange cardData ={cardData} numchange={ChangeCard}/>
+        <Card isCorrect = {isCorrect} setIsCorrect = {setIsCorrect} question = {cardData[currentCard].question} answer = {cardData[currentCard].answer}/>
+        <CardChange isCorrect = {isCorrect} setIsCorrect = {setIsCorrect} cardData ={cardData} numchange={ChangeCard}/>
+        <div>
+          {isCorrect}
+        </div>
       </div>
     </div>
       
